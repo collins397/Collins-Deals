@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees - Car Deals Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Car Deals Management System</h1>
+        <p>Employee Management</p>
+    </header>
+
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/clients">Clients</a>
+        <a href="/car_types">Car Types</a>
+        <a href="/suppliers">Suppliers</a>
+        <a href="/employees">Employees</a>
+        <a href="/sales">Sales</a>
+        <% if (user) { %><a class="logout-button" href="/logout">Log out</a><% } %>
+    </nav>
+
+    <main>
+
+        <h2>Employee Management</h2>
+
+        <div class="form-container">
+
+            <h3>Add New Employee</h3>
+
+            <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                <p role="alert"><%= errorMessage %></p>
+            <% } %>
+
+            <form action="/employees" method="POST">
+
+                <div class="form-group">
+                    <label for="employee_id">Employee ID</label>
+                    <input type="number" id="employee_id" name="employee_id" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="work_position">Work Position</label>
+                    <input type="text" id="work_position" name="work_position" required>
+                </div>
+
+                <button type="submit">Add Employee</button>
+
+            </form>
+
+        </div>
+
+        <div class="data-container">
+            <h3>Employees List</h3>
+            <% if (employees && employees.length > 0) { %>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Phone</th>
+                            <th>Work Position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% employees.forEach(employee => { %>
+                            <tr>
+                                <td><%= employee.employee_id %></td>
+                                <td><%= employee.phone %></td>
+                                <td><%= employee.work_position %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>No employees found</p>
+            <% } %>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Car Deals Management System</p>
+    </footer>
+
+</body>
+</html>

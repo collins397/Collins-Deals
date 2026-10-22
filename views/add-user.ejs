@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User | Car Deals</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="role-shell">
+        <aside class="role-sidebar admin-sidebar">
+            <a class="brand-mark" href="/admin"><span class="brand-icon">CD</span><span>Car Deals<small>Admin control</small></span></a>
+            <p class="sidebar-label">Control room</p>
+            <nav class="sidebar-nav" aria-label="Admin navigation">
+                <a class="sidebar-link" href="/admin">Overview</a>
+                <a class="sidebar-link active" href="/add-user">Add user</a>
+            </nav>
+            <a class="sidebar-logout logout-button" href="/logout">Log out</a>
+        </aside>
+        <main class="role-content">
+            <div class="role-topline">
+                <div>
+                    <p class="eyebrow">ACCOUNT ACCESS</p>
+                    <h1>Add user</h1>
+                    <p class="role-intro">Approve a registered account using its email address only.</p>
+                </div>
+            </div>
+
+            <section class="form-container">
+                <h2>Approve registered account</h2>
+                <% if (errorMessage) { %>
+                    <p role="alert"><%= errorMessage %></p>
+                <% } %>
+                <form action="/add-user" method="POST">
+                    <div class="form-group">
+                        <label for="email">Registered email address</label>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </div>
+                        <div class="form-group">
+                            <label for="role">Approved role</label>
+                            <select id="role" name="role" required>
+                                <option value="">Choose a role</option>
+                                <option value="manager">Manager</option>
+                                <option value="employee">Employee</option>
+                            </select>
+                        </div>
+                        <button type="submit">Approve account</button>
+                </form>
+            </section>
+
+            <section class="data-container">
+                <h2>Pending accounts</h2>
+                <% if (pendingUsers.length > 0) { %>
+                    <ul>
+                        <% pendingUsers.forEach(user => { %>
+                            <li><%= user.email %> (requested: <%= user.role %>)</li>
+                        <% }); %>
+                    </ul>
+                <% } else { %>
+                    <p>No accounts are waiting for approval.</p>
+                <% } %>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

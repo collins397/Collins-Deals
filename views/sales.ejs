@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales - Car Deals Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Car Deals Management System</h1>
+        <p>Sales Management</p>
+    </header>
+
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/clients">Clients</a>
+        <a href="/car_types">Car Types</a>
+        <a href="/suppliers">Suppliers</a>
+        <a href="/employees">Employees</a>
+        <a href="/sales">Sales</a>
+        <% if (user) { %><a class="logout-button" href="/logout">Log out</a><% } %>
+    </nav>
+
+    <main>
+
+        <h2>Record Sale</h2>
+
+        <div class="form-container">
+
+            <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                <p role="alert"><%= errorMessage %></p>
+            <% } %>
+
+            <form action="/sales" method="POST">
+
+                <div class="form-group">
+                    <label for="sales_id">Sales ID</label>
+                    <input type="number" id="sales_id" name="sales_id" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="durabilty">Durability</label>
+                    <input type="text" id="durabilty" name="durabilty" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="client_id">Choose an existing client</label>
+                    <select id="client_id" name="client_id" required>
+                        <option value="">Select a client</option>
+                        <% clients.forEach(client => { %>
+                            <option value="<%= client.client_id %>"><%= client.client_id %></option>
+                        <% }); %>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="employee_id">Choose an existing employee</label>
+                    <select id="employee_id" name="employee_id" required>
+                        <option value="">Select an employee</option>
+                        <% employees.forEach(employee => { %>
+                            <option value="<%= employee.employee_id %>"><%= employee.employee_id %></option>
+                        <% }); %>
+                    </select>
+                </div>
+
+                <button type="submit">Record Sale</button>
+
+            </form>
+
+        </div>
+
+        <div class="data-container">
+            <h3>Sales List</h3>
+            <% if (sales && sales.length > 0) { %>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Sales ID</th>
+                            <th>Price</th>
+                            <th>Durability</th>
+                            <th>Client ID</th>
+                            <th>Employee ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% sales.forEach(sale => { %>
+                            <tr>
+                                <td><%= sale.sales_id %></td>
+                                <td><%= sale.price %></td>
+                                <td><%= sale.durabilty %></td>
+                                <td><%= sale.client_id %></td>
+                                <td><%= sale.employee_id %></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <p>No sales found</p>
+            <% } %>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Car Deals Management System</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Additions | Car Deals</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="latest-additions-page">
+
+    <nav class="latest-additions-nav">
+        <h1>Car Deals</h1>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/car_types">Inventory</a>
+        <a href="/latest">Latest Additions</a>
+        <% if (user) { %><a class="logout-button" href="/logout">Log out</a><% } %>
+    </nav>
+
+    <header class="latest-additions-heading">
+        <p class="latest-eyebrow">FRESH TO THE FLEET</p>
+        <h2>Latest Additions</h2>
+        <p>Check out our newest arrivals.</p>
+    </header>
+
+    <section class="cars">
+        <div class="car latest-car">
+            <img src="/images/range.png" alt="Range Rover">
+            <div class="latest-car-details">
+                <p class="latest-eyebrow">LUXURY SUV</p>
+                <h3>Range Rover</h3>
+                <p>Luxury and power in one SUV.</p>
+                <a class="latest-inventory-link" href="/car_types">Browse inventory <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+
+        <div class="car latest-car">
+            <img src="/images/Audi.jpeg" alt="Audi">
+            <div class="latest-car-details">
+                <p class="latest-eyebrow">LUXURY CAR</p>
+                <h3>Audi</h3>
+                <p>Modern style and a refined driving experience.</p>
+                <a class="latest-inventory-link" href="/car_types">Browse inventory <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+
+        <div class="car latest-car">
+            <img src="/images/gle.jpeg" alt="Mercedes-Benz GLE">
+            <div class="latest-car-details">
+                <p class="latest-eyebrow">LUXURY SUV</p>
+                <h3>Mercedes-Benz GLE</h3>
+                <p>Comfort, space, and confident performance.</p>
+                <a class="latest-inventory-link" href="/car_types">Browse inventory <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Car Deals. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

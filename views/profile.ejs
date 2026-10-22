@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Car Deals</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="role-shell">
+        <aside class="role-sidebar">
+            <a class="brand-mark" href="/dashboard"><span class="brand-icon">CD</span><span>Car Deals<small>Sales workspace</small></span></a>
+            <p class="sidebar-label">My account</p>
+            <nav class="sidebar-nav" aria-label="Profile navigation">
+                <a class="sidebar-link active" href="/profile">My profile</a>
+            </nav>
+            <a class="sidebar-logout logout-button" href="/logout">Log out</a>
+        </aside>
+        <main class="role-content">
+            <div class="role-topline">
+                <div>
+                    <p class="eyebrow">ACCOUNT DETAILS</p>
+                    <h1>My profile</h1>
+                    <p class="role-intro">Your private account information.</p>
+                </div>
+            </div>
+            <section class="role-cards" aria-label="Profile information">
+                <div class="role-card">
+                    <strong>Email</strong>
+                    <small><%= user.email %></small>
+                </div>
+                <div class="role-card">
+                    <strong>Role</strong>
+                    <small><%= user.role %></small>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

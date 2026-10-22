@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Deals - Login</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <main class="login-page">
+        <section class="login-panel" aria-labelledby="login-title">
+            <div class="login-brand" aria-hidden="true">
+                <span class="login-brand-mark">CD</span>
+                <span class="login-brand-name">Collins Deals</span>
+            </div>
+
+            <div class="login-heading">
+                <p class="eyebrow">Management portal</p>
+                <h1 id="login-title">Welcome back</h1>
+                <p>Sign in to manage your car deals, clients, and sales.</p>
+            </div>
+
+            <form class="login-form" action="/login" method="POST">
+                <div class="login-field">
+                    <label for="email">Email address</label>
+                    <input id="email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+                </div>
+
+                <div class="login-field">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required>
+                </div>
+
+                <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                    <p role="alert"><%= errorMessage %></p>
+                <% } else if (typeof registered !== 'undefined' && registered) { %>
+                    <p role="status">Account created. An Admin must approve your email before you can sign in.</p>
+                <% } %>
+
+                <button class="login-submit" type="submit">Sign in <span aria-hidden="true">&#8594;</span></button>
+            </form>
+
+            <a class="login-back" href="/register">Create an account</a>
+        </section>
+
+        <aside class="login-aside" aria-label="Car Deals overview">
+            <p class="eyebrow">One clear view</p>
+            <h2>Keep every deal moving.</h2>
+            <p>Bring your inventory, suppliers, clients, and team into one dependable workspace.</p>
+            <div class="login-aside-rule"></div>
+            <p class="login-aside-caption">CAR DEALS MANAGEMENT SYSTEM</p>
+        </aside>
+    </main>
+</body>
+</html>

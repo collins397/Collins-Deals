@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create account | Collins Deals</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="login-page">
+        <section class="login-panel" aria-labelledby="register-title">
+            <div class="login-brand" aria-hidden="true">
+                <span class="login-brand-mark">CD</span>
+                <span class="login-brand-name">Collins Deals</span>
+            </div>
+
+            <div class="login-heading">
+                <p class="eyebrow">Management portal</p>
+                <h1 id="register-title">Create an account</h1>
+                <p>Create an account and request a work role. An Admin must approve access.</p>
+            </div>
+
+            <form class="login-form" action="/register" method="POST">
+                <% if (typeof errorMessage !== 'undefined' && errorMessage) { %>
+                    <p role="alert"><%= errorMessage %></p>
+                <% } %>
+
+                <div class="login-field">
+                    <label for="email">Email address</label>
+                    <input id="email" type="email" name="email" autocomplete="email" required>
+                </div>
+
+                <div class="login-field">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" autocomplete="new-password" minlength="8" required>
+                </div>
+
+                <div class="login-field">
+                    <label for="role">Requested role</label>
+                    <select id="role" name="role" required>
+                        <option value="">Choose a role</option>
+                        <option value="admin">Admin</option>
+                        <option value="manager">Manager</option>
+                        <option value="employee">Employee</option>
+                    </select>
+                </div>
+
+                <button class="login-submit" type="submit">Create account</button>
+            </form>
+
+            <a class="login-back" href="/login">Back to sign in</a>
+        </section>
+
+        <aside class="login-aside" aria-label="Car Deals overview">
+            <p class="eyebrow">One clear view</p>
+            <h2>Keep every deal moving.</h2>
+            <p>Bring your inventory, suppliers, clients, and team into one dependable workspace.</p>
+            <div class="login-aside-rule"></div>
+            <p class="login-aside-caption">CAR DEALS MANAGEMENT SYSTEM</p>
+        </aside>
+    </main>
+</body>
+</html>

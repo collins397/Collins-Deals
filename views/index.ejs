@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>car deals management system</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Car Deals Management System</h1>
+        <p>Welcome to the Car Deals Management System!manage your car deals efficiently.</p>
+    </header>
+
+    <nav>
+        <a href="/">Dashboard</a>
+        <a href="/clients">Clients</a>
+        <a href="/car_types">Car Types</a>
+        <a href="/suppliers">Suppliers</a>
+        <a href="/employees">Employees</a>
+        <a href="/sales">Sales</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <% if (user) { %><a class="logout-button" href="/logout">Log out</a><% } %>
+    </nav>
+
+    <main>
+        <h2>Dashboard</h2>
+        <p>This is the main content area for the dashboard.</p>
+        <section class="cards">
+            <div class="card">
+                <h3>Clients</h3>
+                <p>Manage your clients and their information.</p>
+            </div>
+
+            <div class="card">
+                <h3>Cars</h3>
+                <p>View and manage the cars available for sale.</p>
+            </div>
+
+            <div class="card">
+                <h3>Suppliers</h3>
+                <p>Keep track of your suppliers and their details.</p>
+            </div>
+
+            <div class="card">
+                <h3>Employees</h3>
+                <p>Manage your employees and their roles.</p>
+            </div>
+
+            <div class="card">
+                <h3>Sales</h3>
+                <p>Track and manage your sales transactions.</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
